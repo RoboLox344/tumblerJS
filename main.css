@@ -204,8 +204,8 @@ input {
   padding: 3px;
   box-sizing: border-box;
   color: var(--tabs-pas-color);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 /** телефоны горизоатлно*/
