@@ -73,6 +73,7 @@ input {
   margin-bottom: 20px;
   min-height: 50%;
   width: 100%;
+  align-self: start;
 }
 .progress-main-wp .progress-bar-wp .progress-title {
   margin-bottom: 20%;
@@ -208,7 +209,7 @@ input {
 }
 
 /** телефоны горизоатлно*/
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 1000px) {
   .progress-main-wp {
     grid-template-columns: repeat(2, 1fr);
     max-width: 100%;
@@ -223,7 +224,7 @@ input {
     margin-right: 10%;
   }
   .progress-main-wp .progress-bar-wp .progress-title {
-    margin-bottom: 10%;
+    margin-bottom: 20px;
   }
   .progress-main-wp .progress-tabs-wp {
     align-self: center;
