@@ -1,0 +1,240 @@
+:root{
+    --main-color: #fff;
+    --main-text-color: #000;
+    --tabs-active-color:rgb(103, 182, 242);
+    --tabs-pas-color:gray;  
+    --tabs-black:rgb(63, 63, 63);
+}
+
+body{
+    background-color: pink;
+}
+.flex{
+    display: flex;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input{
+    padding: 0;
+}
+.progress-main-wp{
+    position: relative;
+    margin:  0 auto;
+    max-width: 320px;
+    width: 100%;
+    min-height: 568px;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: 50%;
+    place-items: center;
+    
+   background-color: var(--main-color);
+    @keyframes add-error {
+        0%{
+            transform: translateX(-100%);
+            opacity: 0;
+        };
+        100%{
+            transform: translateX(0);
+            opacity: 1;
+        };
+    }
+    .error-wp{
+        position: fixed;
+        top: 2%;
+        max-width: 300px;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        z-index: 4;
+        animation: add-error 300ms ease-in-out normal;
+        background-color: rgb(221, 108, 108);
+        transform: rotate(0deg);
+        transition: transform 300ms ease-in-out;
+
+    }
+
+    .progress-bar-wp{
+        flex-direction: column;
+        margin-bottom: 20px;
+        min-height: 50%;
+        width: 100%;
+        .progress-title{
+            margin-bottom: 20%;
+        }
+        .canvas-wp{
+            position: relative;
+            max-width: 150px;
+            height: 150px;
+            align-self: center;
+            .progress-bar{
+                position: relative;
+                max-width: 150px;
+                width: 100%;
+                min-height: 150px;
+                border-radius: 100px;
+                background-color:var(--tabs-pas-color);
+                align-self: center;
+            }
+            
+        }
+        .canvas-wp::before{
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            background-color: var(--main-color);
+            border-radius:100px ;
+            z-index: 3;
+        }
+        
+    } 
+    @keyframes round-go {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+    .animated-round{
+        animation: round-go 3000ms ease-in-out infinite;
+        transition: transform 300ms ease-in-out;
+    }
+    .hide{
+        display: none;
+    }
+    .progress-tabs-wp{
+        flex-direction: column;
+        align-self:start;
+        padding: 1%;
+        box-sizing: border-box;
+        gap: 10px;
+        
+        box-sizing: border-box;
+        align-items: stretch;
+        .tab{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+            .tabs-form{
+                width: 50px;
+                position: relative;
+                border-radius: 100px;
+                min-height: 20px;
+                border: none;
+                background-color: var(--tabs-pas-color);
+                transition: background-color 300ms ease-in-out;
+                padding: 0;
+                overflow: hidden;
+                cursor: pointer;
+                .round-tumbler{
+                    position: absolute;
+                    top: 50%;
+                    left:4%;
+                    transform: translateY(-50%);
+                    display: block;
+                    background-color: var(--main-color);
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 20px;
+                    z-index: 1;
+                    transition: transform 300ms ease-in-out;
+                }
+                .off, .on{
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                .off{
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 100px;
+                    background-color: var(--tabs-black);
+                    right: 12%
+                    
+                }
+                .off::before{
+                    content: '';
+                    position: absolute;
+                    height: 75%;
+                    width: 75%;
+                    border-radius: 100px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color:var(--tabs-pas-color);
+                    right: 12%
+                }
+                .on{
+                    height: 10px;
+                    width: 2px;
+                    background-color:var(--main-color);
+                    left: 20%;
+                }
+                
+                .hide-input{
+                    
+                    width: 0;
+                    height: 0;
+                    opacity: 0;
+                }
+                .hide-input:checked + .round-tumbler{
+                    transform: translate(190%, -50%);
+                }
+
+            }
+            .tab-input{
+                background-color: transparent;
+                outline: 1px solid var(--tabs-pas-color);
+                text-align: center;
+                padding: 3px;
+                box-sizing: border-box;
+                color:var(--tabs-pas-color);
+                font-size: 14px;
+                font-weight: 600;
+                
+            }
+            
+        }
+    }
+}
+/** телефоны горизоатлно*/
+@media (min-width: 481px) and (max-width:767px){
+    .progress-main-wp{
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+        min-height: auto;
+        /* justify-content: space-between; */
+        grid-auto-rows: auto;
+        .progress-bar-wp {
+            .canvas-wp{
+                max-width: 150px;
+                height: 150px;
+                align-self: end;
+                margin-right: 10%;
+            }
+            .progress-title{
+                margin-bottom: 10%;
+            }
+        }
+        .progress-tabs-wp{
+            align-self: center;
+            justify-self: self-start;
+        }
+    }
+}
